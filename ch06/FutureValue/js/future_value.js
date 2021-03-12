@@ -9,7 +9,8 @@ var processEntries = function () {
   var rate = parseFloat($("rate").value);
   var years = parseInt($("years").value);
 
-  if ((isNaN(investment) && investment <= 0) || (isNaN(rate) && rate <= 0) || (isNaN(years) && years <= 0)) {
+  // validate data
+  if (isNaN(investment) || investment <= 0 || isNaN(rate) || rate <= 0 || isNaN(years) || years <= 0) {
     alert("Please enter valid entries");
   } else {
     $("result").value = calculate(investment, rate, years).toFixed(2);
