@@ -14,7 +14,7 @@ var displaySortedTaskList = function (tasks, divEle, deleteHandler) {
     for (var i in tasks) {
       html = html.concat("<p>");
       html = html.concat("<a href='#' id='", i, "'>Delete</a>");
-      html = html.concat(tasks[i]);
+      html = html.concat(" " + tasks[i]);
       html = html.concat("</p>");
     }
 

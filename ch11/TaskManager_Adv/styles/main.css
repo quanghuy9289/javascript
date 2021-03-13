@@ -30,6 +30,11 @@ h1 {
   overflow: auto;
 }
 
+#task_list {
+  width: 100%;
+  resize: none;
+}
+
 #task_form {
   width: 50%;
   padding-right: 2rem;

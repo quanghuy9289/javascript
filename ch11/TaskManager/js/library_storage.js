@@ -13,6 +13,7 @@ var storagePrototype = {
   },
 };
 
+// factory function to create a storage instance
 var getTaskStorage = function (key) {
   var storage = Object.create(storagePrototype);
   storage.key = key;

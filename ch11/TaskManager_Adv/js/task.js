@@ -8,12 +8,9 @@ var addToTaskList = function () {
   var newTask = new Task(taskTextbox.value);
   if (newTask.isValid()) {
     // add task to tasklist
-    taskList.add(newTask);
-    // save task list to local storage
-    taskList.save();
-    // display tasklist on view
-    taskList.display();
-    // reset task textbox
+    // then save task list to local storage
+    // then display tasklist on view
+    taskList.add(newTask).save().display();
     taskTextbox.value = "";
   } else {
     alert("Please enter a task");
@@ -27,9 +24,7 @@ var clearTaskList = function () {
 };
 
 var deleteFromTaskList = function () {
-  taskList.delete(this.id); // this => clicked link
-  taskList.save();
-  taskList.display();
+  taskList.delete(this.id).save().display(); // this => clicked link
   $("task").focus();
 };
 
@@ -42,7 +37,6 @@ window.onload = function () {
   taskList.deleteClickHandler = deleteFromTaskList;
 
   // load tasks and display
-  taskList.load();
-  taskList.display();
+  taskList.load().display();
   $("task").focus();
 };

@@ -3,22 +3,19 @@ var $ = function (id) {
   return document.getElementById(id);
 };
 var tasks = [];
-var TASKS_KEY = "tasks";
+var TASKS = "tasks";
 
 var displayTaskList = function () {
   var list = ""; // contains task list
   if (tasks.length === 0) {
     // get in storage
-    tasks = getStorageItem(TASKS_KEY);
+    tasks = getStorageItem(TASKS);
   }
 
   // sort and display tasks
   if (tasks.length > 0) {
     displaySortedTaskList(tasks, $("tasks"), deleteFromTaskList);
   }
-
-  // display tasks string and set focus on task text box
-  $("task").focus();
 };
 
 var addToTaskList = function () {
@@ -26,31 +23,42 @@ var addToTaskList = function () {
   if (task === "") {
     alert("Please enter a task");
   } else {
-    // add task to localstorage and tasks array
+    // add task to tasks array
     tasks.push(capitalizeTask(task));
-    setStorageItem(TASKS_KEY, tasks);
-
-    // clear task list text and re-display tasks
-    $("task").value = "";
+    // update local storage
+    setStorageItem(TASKS, tasks);
+    // re-display tasks
     displayTaskList();
+    // clear task list text
+    $("task").value = "";
   }
 };
 
 var clearTaskList = function () {
+  // clear task array
   tasks.length = 0;
-  localStorage.removeItem("tasks");
-  $("task_list").value = "";
+  // clear storage
+  clearStorageItem(TASKS);
+  // clear UI
+  $("tasks").innerHTML = "";
   $("task").focus();
 };
 
 var deleteFromTaskList = function () {
+  // remove item out of tasks
   deleteTask(tasks, this.id); // this => clicked link
-  setStorageItem(TASKS_KEY, tasks);
+  // update storage
+  setStorageItem(TASKS, tasks);
+  // re-display tasks
   displayTaskList();
+  $("task").focus();
 };
 
 window.onload = function () {
   $("add_task").onclick = addToTaskList;
   $("clear_tasks").onclick = clearTaskList;
+
+  // display tasks string and set focus on task text box
   displayTaskList();
+  $("task").focus();
 };
