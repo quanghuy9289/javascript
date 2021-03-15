@@ -1,3 +1,4 @@
+// constructor function
 var Task = function (task) {
   this.text = task;
 };
