@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swap 2 number</title>
+    <script>
+      var stringToDisplay = "";
+      var a = parseFloat(prompt("Enter a = "));
+      var b = parseFloat(prompt("Enter b = "));
+      if (isNaN(a) || isNaN(b)) {
+        alert("Please enter valid number");
+      } else {
+        stringToDisplay += "Two number:<br>" + "a = " + a + "<br>" + "b = " + b + "<br>";
+        var c = a;
+        a = b;
+        b = c;
+        stringToDisplay += "After swap:<br>" + "a = " + a + "<br>" + "b = " + b + "<br>";
+      }
+    </script>
+  </head>
+  <body>
+    <p>
+      <script>
+        document.write(stringToDisplay);
+      </script>
+    </p>
+  </body>
+</html>

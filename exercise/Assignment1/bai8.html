@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bai 8</title>
+    <script>
+      var result = "";
+
+      function daysInMonth(month, year) {
+        return new Date(year, month, 0).getDate();
+      }
+
+      var n = parseInt(prompt("Enter n: (from 1 to 12)"));
+      if (isNaN(n) || n < 1 || n > 12) {
+        alert("Please enter valid number");
+      } else {
+        var date = new Date();
+        result = "Number of days in month " + n + " is: " + daysInMonth(n, date.getFullYear());
+      }
+    </script>
+  </head>
+  <body>
+    <script>
+      document.write(result);
+    </script>
+  </body>
+</html>

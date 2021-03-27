@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rank of students</title>
+    <script>
+      var stringToDisplay = "";
+      var math = parseFloat(prompt("Enter math point: "));
+      var physics = parseFloat(prompt("Enter physics point: "));
+      var chemistry = parseFloat(prompt("Enter chemistry point: "));
+
+      if (
+        isNaN(math) ||
+        (math < 0 && math > 10) ||
+        isNaN(physics) ||
+        (physics < 0 && physics > 10) ||
+        isNaN(chemistry) ||
+        (chemistry < 0 && chemistry > 10)
+      ) {
+        alert("Please enter valid marks");
+      } else {
+        stringToDisplay +=
+          "Mark of subjects:<br>" +
+          "Math = " +
+          math +
+          "<br>" +
+          "Physics = " +
+          physics +
+          "<br>" +
+          "Chemistry = " +
+          chemistry +
+          "<br>";
+        var average = (math + physics + chemistry) / 3;
+        var rank = "A";
+        if (average >= 8) {
+          rank = "A";
+        } else if (average >= 6.5) {
+          rank = "B";
+        } else if (average >= 5) {
+          rank = "C";
+        } else {
+          rank = "D";
+        }
+        stringToDisplay += "<br>Average: " + average.toFixed(2) + "<br>";
+        stringToDisplay += "Rank: " + rank;
+      }
+    </script>
+  </head>
+  <body>
+    <p>
+      <script>
+        document.write(stringToDisplay);
+      </script>
+    </p>
+  </body>
+</html>

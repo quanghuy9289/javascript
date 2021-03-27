@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Print triangle</title>
+    <script>
+      var printTriangle = function (n) {
+        var triangle = "";
+        // Dung 2 vong lap de in ra so luong dau * tuong ung voi gia tri cua n
+        for (var i = 1; i <= n; i++) {
+          // in khoang trang
+          for (var k = 1; k <= n - i; k++) {
+            triangle += " ";
+          }
+          // in dau *
+          for (var j = 1; j <= i; j++) {
+            triangle += "*";
+          }
+          // break line
+          triangle += "<br>";
+        }
+        return triangle;
+      };
+
+      var n = parseInt(prompt("Enter n: "));
+      var stringToDisplay = "";
+
+      if (isNaN(n) || n <= 0) {
+        alert("Please enter valid number");
+      } else {
+        stringToDisplay = "n = " + n + "<br>" + "Triangle:<br><pre>" + printTriangle(n) + "</pre><br>";
+      }
+    </script>
+  </head>
+  <body>
+    <p>
+      <script>
+        document.write(stringToDisplay);
+      </script>
+    </p>
+  </body>
+</html>

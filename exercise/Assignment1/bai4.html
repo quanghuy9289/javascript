@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ax2 + bx + c = 0</title>
+    <script>
+      var stringToDisplay = "";
+      var a = parseFloat(prompt("Enter a: "));
+      var b = parseFloat(prompt("Enter b: "));
+      var c = parseFloat(prompt("Enter c: "));
+
+      if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        alert("Please enter valid a, b, c");
+      } else {
+        if (a == 0) {
+          if (b != 0) {
+            stringToDisplay = "x: " + (-c / b).toFixed(2);
+          } else if (b == 0 && c == 0) {
+            stringToDisplay = "Countless experiments";
+          } else if (b == 0 && c != 0) {
+            stringToDisplay = "No solution";
+          }
+        } else {
+          var delta = b * b - 4 * a * c;
+          if (delta > 0) {
+            var x1 = (-b + Math.sqrt(delta)) / (2 * a);
+            var x2 = (-b - Math.sqrt(delta)) / (2 * a);
+            stringToDisplay = "x1: " + x1.toFixed(2) + "<br>x2: " + x2.toFixed(2);
+          } else if (delta == 0) {
+            var x = -b / (2 * a);
+            stringToDisplay = "x1 = x2 = " + x.toFixed(2);
+          } else {
+            stringToDisplay = "No solution";
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <p>
+      <script>
+        document.write(stringToDisplay);
+      </script>
+    </p>
+  </body>
+</html>

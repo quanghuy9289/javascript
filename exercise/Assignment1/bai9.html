@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UCLN</title>
+    <script>
+      var greatestCommonDivisor = function (a, b) {
+        while (a != b) {
+          if (a > b) {
+            a = a - b;
+          } else {
+            b = b - a;
+          }
+        }
+        return a;
+      };
+
+      var a = parseInt(prompt("Enter a: "));
+      var b = parseInt(prompt("Enter b: "));
+
+      if (isNaN(a) || a < 0 || isNaN(b) || b < 0) {
+        alert("Please enter valid numbers");
+      } else {
+        var result = greatestCommonDivisor(a, b);
+        var stringToDisplay =
+          "Greatest common divisor of:<br>" + "a = " + a + "<br>" + "b = " + b + "<br>" + "Result = " + result + "<br>";
+      }
+    </script>
+  </head>
+  <body>
+    <p>
+      <script>
+        document.write(stringToDisplay);
+      </script>
+    </p>
+  </body>
+</html>
